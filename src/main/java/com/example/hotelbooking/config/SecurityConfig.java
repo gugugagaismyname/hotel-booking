@@ -47,10 +47,6 @@ public class SecurityConfig {
             .loginPage("/login-form")
             .defaultSuccessUrl("/hotels-page", true)
             .permitAll()
-        )
-        .oauth2Login(oauth2 -> oauth2
-            .loginPage("/login-form")
-            .defaultSuccessUrl("/hotels-page", true)
         );
     return http.build();
   }
