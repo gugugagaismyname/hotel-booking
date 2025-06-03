@@ -8,10 +8,28 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://dpg-d0tbi7u3jp1c73edp35g-a/senpai_77ub
+    url: jdbc:postgresql://dpg-d0tbi7u3jp1c73edp35g-a.frankfurt-postgres.render.com/senpai_77ub
     username: user
     password: cjX9PRmQvlU7oZiVkN8hFsltJ4NyNRND
     driverClassName: org.postgresql.Driver
   sql:
     init:
       platform: postgres
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 662962928767-koc3agbupv4abrkck90ml29lb4bnnqae.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
